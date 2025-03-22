@@ -273,6 +273,42 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Contract Address Banner */}
+      <div className="bg-gradient-to-r from-purple-900/80 to-blue-900/80 py-3 border-b border-white/10 sticky top-[73px] z-30 backdrop-blur-md">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <Badge variant="outline" className="bg-purple-500/20 text-white border-purple-500/30">
+                PUMPFUN COIN
+              </Badge>
+              <span className="text-sm text-gray-300">Contract Address:</span>
+            </div>
+            <div className="flex items-center gap-2 bg-black/30 px-3 py-1.5 rounded-lg border border-white/10 w-full sm:w-auto">
+              <code className="text-xs sm:text-sm font-mono text-gray-200 truncate max-w-[200px] sm:max-w-none">
+                6vdezYVDCA3cawmiSWp23Mmn6xfcuyB9QtZzX1iEpump
+              </code>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-7 px-2 text-xs"
+                onClick={() => {
+                  navigator.clipboard.writeText("6vdezYVDCA3cawmiSWp23Mmn6xfcuyB9QtZzX1iEpump")
+                  const button = document.getElementById("copy-button")
+                  if (button) {
+                    button.innerText = "Copied!"
+                    setTimeout(() => {
+                      button.innerText = "Copy"
+                    }, 2000)
+                  }
+                }}
+              >
+                <span id="copy-button">Copy</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 md:py-32 relative">
         <motion.div
